@@ -25,9 +25,33 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background:  #0066ff, url(assets/bottom_page.png);
+  background:  url(assets/bottom_page.png), linear-gradient(0deg, #5f9fff 0%, #3586ff 50%, #0066ff 100%);
+  background-position: center bottom;
+  background-repeat: repeat; 
+  animation: backgroundMove 10s linear infinite alternate; /* Adjust duration, timing, and direction */
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 10%; /* Starting position (left) */
+  }
+  100% {
+    background-position: 100% 120%; /* Ending position (right) */
+  }
+} 
+
+header {
+    height: 150px;
+    font-family: "Dongle", sans-serif;
+    font-weight: bolder;
+    font-size: 120px;
+    color: white;
+    text-shadow: 0 0 3px #ffffff, 0 0 5px #00faff;
 }
 
 h1 {
@@ -65,4 +89,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+footer {
+  height: 50px;
 }
