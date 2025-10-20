@@ -153,61 +153,7 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       </group>
     )
   }
-
-  if (layerNum >= 50 && layerNum <= 59) {
-    let posX: number = -5 
-    let posY: number = 1
-
-    switch (layerNum) {
-      case 51:
-          posX = -5.7
-          posY =  .46
-        break;
-      case 52:
-          posX = -4.4
-          posY =  .4
-        break;
-      case 53:
-          posX = -4.8
-          posY = -0.1
-        break;
-      case 54:
-          posX = -5.9
-          posY = -0.1
-        break;
-    }
-    return (
-      <group ref={m}>
-        <mesh position={[posX - .3, posY - .2, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
-          <cylinderGeometry args={[.25, .25, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
-        </mesh>
-        <mesh position={[posX, posY, depth + .1]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
-          <cylinderGeometry args={[.3, .3, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
-        </mesh>
-        <mesh position={[posX + .4, posY - .2, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
-          <cylinderGeometry args={[.25, .25, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
-        </mesh>
-        <mesh position={[posX + .5, posY - .4, depth + .1]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
-          <cylinderGeometry args={[.25, .25, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
-        </mesh>
-        <mesh position={[posX, posY - .4, depth - .1]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
-          <cylinderGeometry args={[.4, .4, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
-        </mesh>
-        {layerNum === 50 ? (
-          <mesh position={[posX, posY - 1.6, depth - .1]} castShadow receiveShadow>
-            <boxGeometry args={[.3, 1.5, deep]}  />
-            <meshStandardMaterial roughness={0.85} color={'#5b430f'} />
-          </mesh>
-        ):(<></>)}
-      </group>
-    )
-  }
-
+ 
   return (
     <mesh ref={m} position={[0, 0, depth]} castShadow receiveShadow>
       <boxGeometry args={[1, 1, .05]} />
@@ -215,6 +161,60 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
     </mesh>
   )
 
+}
+
+function Tree({ depth, strength, colors, position, scale }: { depth: number; strength: number; colors: Array<string>; position: Array<number>; scale: number }) {
+  const m = useRef<THREE.Mesh>(null!)
+  const deep: number = .05
+  useFrame((state, dt) => {
+    const { pointer } = state
+    m.current.position.x = THREE.MathUtils.damp(m.current.position.x, pointer.x * strength, 5, dt)
+    m.current.position.y = THREE.MathUtils.damp(m.current.position.y, pointer.y * strength, 5, dt)
+  })
+
+  type Branch = {
+    x: number
+    y: number
+    depth: number
+    color: string
+  };
+
+  let positions: Array<Branch> = [
+    {x: position[0], y: position[1], depth, color: colors[0]},
+    {x: position[0] - .7 , y: position[1] - .54, depth, color: colors[1]},
+    {x: position[0] + .6, y: position[1] - .6, depth, color: colors[0]},
+    {x: position[0] + .2, y: position[1] - 1.1, depth: depth - .3, color: colors[1]},
+    {x: position[0] - .9, y: position[1] - 1.1, depth, color: colors[0]}
+  ]
+
+    return (
+      <group ref={m} scale={scale}>
+        {positions.map(({x, y, depth, color}) => (
+        <>
+            <mesh position={[x - .3, y - .2, depth]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+            <cylinderGeometry args={[.25, .25, deep, 50]} />
+            <meshStandardMaterial roughness={0.85} color={color} />
+            </mesh><mesh position={[x, y, depth + .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[.3, .3, deep, 50]} />
+              <meshStandardMaterial roughness={0.85} color={color} />
+            </mesh><mesh position={[x + .4, y - .2, depth]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[.25, .25, deep, 50]} />
+              <meshStandardMaterial roughness={0.85} color={color} />
+            </mesh><mesh position={[x + .5, y - .4, depth + .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[.25, .25, deep, 50]} />
+              <meshStandardMaterial roughness={0.85} color={color} />
+            </mesh><mesh position={[x, y - .4, depth - .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+              <cylinderGeometry args={[.4, .4, deep, 50]} />
+              <meshStandardMaterial roughness={0.85} color={color} />
+            </mesh>
+          </>
+        ))}
+        <mesh position={[position[0], position[1] - 1.6, depth - .1]} castShadow receiveShadow>
+          <boxGeometry args={[.25, 1.5, deep]}  />
+          <meshStandardMaterial roughness={0.85} color={'#5b430f'} />
+        </mesh>
+      </group>
+    )
 }
 
 export default function PointerParallaxWithHelpers() {
@@ -236,18 +236,17 @@ export default function PointerParallaxWithHelpers() {
         <Layer depth={-1.2} strength={globalStregth * 0.6} color="#70a9f4" layerNum={11} />
         <Layer depth={-0.9} strength={globalStregth *  0.7} color="#34a7bc" layerNum={12} />
         <Layer depth={-0.6} strength={globalStregth *  0.8} color="#348abc" layerNum={13} />
-        <Layer depth={0.0} strength={globalStregth * 1.0} color="#fff" layerNum={30} />
-        <Layer depth={0.0} strength={globalStregth * 1.0} color="#fff" layerNum={31} />
-        <Layer depth={0.0} strength={globalStregth * 1.0} color="#fff" layerNum={32} />
+        <Layer depth={-0.1} strength={globalStregth * 1.0} color="#fff" layerNum={30} />
+        <Layer depth={-0.1} strength={globalStregth * 1.0} color="#fff" layerNum={31} />
+        <Layer depth={-0.1} strength={globalStregth * 1.0} color="#fff" layerNum={32} />
         <Layer depth={-0.3} strength={globalStregth * 1.9} color="#326f65" layerNum={39} />
         <Layer depth={0.2} strength={globalStregth * 2.0} color="#1e8e4f" layerNum={40} />
+        <Tree depth={0.1} strength={globalStregth * 2.0} colors={["#48b14b", "#5de262"]} position={[5,2.0]} scale={1} />
         <Layer depth={0.9} strength={globalStregth * 2.5} color="#40b974" layerNum={41} />
+        <Tree depth={0.8} strength={globalStregth * 2.5} colors={["#5de262", "#48b14b"]} position={[-5,1]} scale={1} />
         <Layer depth={1.2} strength={globalStregth * 3.0} color="#5de289" layerNum={42} />
-        <Layer depth={0.8} strength={globalStregth * 2.5} color="#5de262" layerNum={50} />
-        <Layer depth={0.8} strength={globalStregth * 2.5} color="#48b14b" layerNum={51} />
-        <Layer depth={0.8} strength={globalStregth * 2.5} color="#5de262" layerNum={52} />
-        <Layer depth={0.5} strength={globalStregth * 2.5} color="#48b14b" layerNum={53} />
-        <Layer depth={0.8} strength={globalStregth * 2.5} color="#5de262" layerNum={54} />
+        <Tree depth={0.8} strength={globalStregth * 3.0} colors={["#5de262", "#48b14b"]} position={[5.5, .9]} scale={1.5} />
+        <Tree depth={0.8} strength={globalStregth * 3.0} colors={["#48b14b", "#5de262"]} position={[-6, -.3]} scale={1.5} />
       </Rig>
     </Canvas>
   )
