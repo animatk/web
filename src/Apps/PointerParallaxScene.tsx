@@ -8,7 +8,7 @@ function Rig({ children }: { children: React.ReactNode }) {
   const { pointer, viewport } = useThree()
   const g = useRef<THREE.Group>(null!)
 
-  useFrame((state, dt) => {
+  useFrame((_state, dt) => {
     const targetRotX = THREE.MathUtils.clamp(pointer.y * 0.15, -0.2, 0.2)
     const targetRotY = THREE.MathUtils.clamp(pointer.x * -0.25, -0.35, 0.35)
     const targetX = THREE.MathUtils.clamp(pointer.x * (viewport.width * 0.05), -1, 1)
