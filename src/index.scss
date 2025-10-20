@@ -24,38 +24,28 @@ a:hover {
 
 body {
   margin: 0;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background:  #0066ff, url(assets/bottom_page.png);
-  background:  url(assets/bottom_page.png), linear-gradient(0deg, #5f9fff 0%, #3586ff 50%, #0066ff 100%);
+  background:  transparent;
   background-position: center bottom;
   background-repeat: repeat; 
-  animation: backgroundMove 10s linear infinite alternate; /* Adjust duration, timing, and direction */
 }
-
-@keyframes backgroundMove {
-  0% {
-    background-position: 0% 10%; /* Starting position (left) */
-  }
-  100% {
-    background-position: 100% 120%; /* Ending position (right) */
-  }
-} 
 
 header {
     height: 150px;
     font-family: "Dongle", sans-serif;
     font-weight: bolder;
-    font-size: 120px;
     color: white;
     text-shadow: 0 0 3px #ffffff, 0 0 5px #00faff;
+    z-index: 1;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 5rem;
   line-height: 1.1;
 }
 
@@ -93,4 +83,5 @@ button:focus-visible {
 
 footer {
   height: 50px;
+  z-index: 1;
 }
