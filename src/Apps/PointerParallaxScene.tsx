@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { useRef } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber'
 import './Three.scss'
 import SunWithHelpers from '../Helpers/SunWithHelpers'
 
@@ -25,6 +25,21 @@ function Rig({ children }: { children: React.ReactNode }) {
 function Layer({ depth, strength, color, layerNum }: { depth: number; strength: number; color: string; layerNum: number }) {
   const m = useRef<THREE.Mesh>(null!)
   const deep: number = .05
+  const texture = useLoader(THREE.TextureLoader, 'texture-white-paper.jpg')
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.repeat.set(1.5, 1.5);
+  //
+  const texture1 = useLoader(THREE.TextureLoader, 'texture-white-paper1.jpg');
+        texture1.wrapS = THREE.RepeatWrapping;
+        texture1.wrapT = THREE.RepeatWrapping;
+        texture1.repeat.set(.1, .1);
+
+  const texture2 = useLoader(THREE.TextureLoader, 'texture-white-paper2.jpg');
+        texture2.wrapS = THREE.RepeatWrapping;
+        texture2.wrapT = THREE.RepeatWrapping;
+        texture2.repeat.set(7, 7);
+
   useFrame((state, dt) => {
     const { pointer } = state
     m.current.position.x = THREE.MathUtils.damp(m.current.position.x, pointer.x * strength, 5, dt)
@@ -36,7 +51,7 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[0, 0, depth]} castShadow receiveShadow>
           <planeGeometry args={[20, 20]} />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture} />
         </mesh>
       </group>
     )
@@ -46,7 +61,7 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[2, 2, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[1, 1, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture1} />
         </mesh>
       </group>
     )
@@ -56,22 +71,23 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[2, 2, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[1, 1, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture} />
         </mesh>
       </group>
     )
   }
 
   if (layerNum >= 10 && layerNum <= 19) {
+    const posXY: number = (layerNum === 14) ? 0 : 2
     return (
       <group ref={m}>
-        <mesh position={[2, 2, depth - 0.03]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
+        <mesh position={[posXY, posXY, depth - 0.03]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[15, layerNum - 8, .01, 50, 2, true ]}   />
           <meshStandardMaterial roughness={0.85} color={color} />
         </mesh>
-        <mesh position={[2, 2, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
+        <mesh position={[posXY, posXY, depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[layerNum - 8, 15, .01, 50, 2, true ]}   />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture} />
         </mesh>
       </group>
     )
@@ -101,19 +117,19 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[posX-1.1, posY-.10, depth - .16]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[size - .4, size - .4, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture1} />
         </mesh>
         <mesh position={[posX-.7, posY-.15, depth - .08]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[size - .3, size - .3, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture1} />
         </mesh>
         <mesh position={[posX, posY, depth ]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[size, size, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture1} />
         </mesh>
         <mesh position={[posX+.7, posY-.15, depth - .08]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[size - .3, size - .3, deep, 50]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture1} />
         </mesh>
       </group>
       )
@@ -124,19 +140,19 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[-5, -5, depth]} rotation={[0,0,Math.PI / 4]} castShadow receiveShadow>
           <boxGeometry args={[10, 10, .05]} />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture} />
         </mesh>
         <mesh position={[-5.5, 1.35, depth + .02]} rotation={[0,0,Math.PI / 4]} castShadow receiveShadow>
           <boxGeometry args={[.5, .5, .05]} />
-          <meshStandardMaterial roughness={0.85} color={'#fff'} />
+          <meshStandardMaterial roughness={0.85} color={'#fff'} map={texture1} />
         </mesh>
         <mesh position={[-5, 1.5, depth + .02]} rotation={[0,0,Math.PI / 4]} castShadow receiveShadow>
           <boxGeometry args={[1, 1, .05]} />
-          <meshStandardMaterial roughness={0.85} color={'#fff'} />
+          <meshStandardMaterial roughness={0.85} color={'#fff'} map={texture1} />
         </mesh>
         <mesh position={[-4.5, 1.35, depth + .02]} rotation={[0,0,Math.PI / 4]} castShadow receiveShadow>
           <boxGeometry args={[.5, .5, .05]} />
-          <meshStandardMaterial roughness={0.85} color={'#fff'} />
+          <meshStandardMaterial roughness={0.85} color={'#fff'} map={texture1} />
         </mesh>
       </group>
     )
@@ -148,7 +164,7 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
       <group ref={m}>
         <mesh position={[posX, -(layerNum + 20), depth]} rotation={[Math.PI / 2,0,0]} castShadow receiveShadow>
           <cylinderGeometry args={[60, 60, deep, 70]}  />
-          <meshStandardMaterial roughness={0.85} color={color} />
+          <meshStandardMaterial roughness={0.85} color={color} map={texture2} />
         </mesh>
       </group>
     )
@@ -166,6 +182,11 @@ function Layer({ depth, strength, color, layerNum }: { depth: number; strength: 
 function Tree({ depth, strength, colors, position, scale }: { depth: number; strength: number; colors: Array<string>; position: Array<number>; scale: number }) {
   const m = useRef<THREE.Mesh>(null!)
   const deep: number = .05
+  const texture3 = useLoader(THREE.TextureLoader, 'texture-white-paper3.jpg');
+        texture3.wrapS = THREE.RepeatWrapping;
+        texture3.wrapT = THREE.RepeatWrapping;
+        texture3.repeat.set(.05, .05);
+
   useFrame((state, dt) => {
     const { pointer } = state
     m.current.position.x = THREE.MathUtils.damp(m.current.position.x, pointer.x * strength, 5, dt)
@@ -193,25 +214,25 @@ function Tree({ depth, strength, colors, position, scale }: { depth: number; str
         <>
             <mesh position={[x - .3, y - .2, depth]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
             <cylinderGeometry args={[.25, .25, deep, 50]} />
-            <meshStandardMaterial roughness={0.85} color={color} />
+            <meshStandardMaterial roughness={0.85} color={color} map={texture3} />
             </mesh><mesh position={[x, y, depth + .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
               <cylinderGeometry args={[.3, .3, deep, 50]} />
-              <meshStandardMaterial roughness={0.85} color={color} />
+              <meshStandardMaterial roughness={0.85} color={color} map={texture3} />
             </mesh><mesh position={[x + .4, y - .2, depth]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
               <cylinderGeometry args={[.25, .25, deep, 50]} />
-              <meshStandardMaterial roughness={0.85} color={color} />
+              <meshStandardMaterial roughness={0.85} color={color} map={texture3} />
             </mesh><mesh position={[x + .5, y - .4, depth + .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
               <cylinderGeometry args={[.25, .25, deep, 50]} />
-              <meshStandardMaterial roughness={0.85} color={color} />
+              <meshStandardMaterial roughness={0.85} color={color} map={texture3} />
             </mesh><mesh position={[x, y - .4, depth - .1]} rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
               <cylinderGeometry args={[.4, .4, deep, 50]} />
-              <meshStandardMaterial roughness={0.85} color={color} />
+              <meshStandardMaterial roughness={0.85} color={color} map={texture3} />
             </mesh>
           </>
         ))}
         <mesh position={[position[0], position[1] - 1.6, depth - .1]} castShadow receiveShadow>
           <boxGeometry args={[.25, 1.5, deep]}  />
-          <meshStandardMaterial roughness={0.85} color={'#5b430f'} />
+          <meshStandardMaterial roughness={0.85} color={'#5b430f'} map={texture3} />
         </mesh>
       </group>
     )
@@ -223,15 +244,15 @@ export default function PointerParallaxWithHelpers() {
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 2, 10], fov: 40 }}
+      camera={{ position: [0, 0, 10], fov: 40 }}
     >
-      <color attach="background" args={['#0066ff']} />
-      <ambientLight intensity={1.5} />
+      <color attach="background" args={['#348abc']} />
+      <ambientLight intensity={1.0} />
       <SunWithHelpers showHelpers={false} />
 
       <Rig>
         <Layer depth={-2.1} strength={globalStregth * -0.5} color="#4b94f4" layerNum={0} />
-        <Layer depth={-1.8} strength={globalStregth * 0.0} color="#fff352" layerNum={1} />
+        <Layer depth={-1.0} strength={globalStregth * 0.0} color="#fff352" layerNum={1} />
         <Layer depth={-1.5} strength={globalStregth * 0.5} color="#93bbf0" layerNum={10} />
         <Layer depth={-1.2} strength={globalStregth * 0.6} color="#70a9f4" layerNum={11} />
         <Layer depth={-0.9} strength={globalStregth *  0.7} color="#34a7bc" layerNum={12} />
@@ -247,6 +268,7 @@ export default function PointerParallaxWithHelpers() {
         <Layer depth={1.2} strength={globalStregth * 3.0} color="#5de289" layerNum={42} />
         <Tree depth={0.8} strength={globalStregth * 3.0} colors={["#5de262", "#48b14b"]} position={[5.5, .9]} scale={1.5} />
         <Tree depth={0.8} strength={globalStregth * 3.0} colors={["#48b14b", "#5de262"]} position={[-6, -.3]} scale={1.5} />
+        <Layer depth={1.5} strength={globalStregth *  -0.5} color="#b5f9ed" layerNum={14} />
       </Rig>
     </Canvas>
   )
