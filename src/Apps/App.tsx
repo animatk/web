@@ -6,14 +6,15 @@ import patreonlogo from '../assets/patreon.webp';
 
 function App() {
   const { width } = useWindowSize();
+  const viewportWidth = width ?? 0;
   const startingPoint: number = 2010;
   const currentYear: number = new Date().getFullYear();
 
   return (
     <div className='about-container'>
     <GlassElement
-            width={(width < 768) ? 300 : 450}
-            height={(width < 768) ? 480 :380}
+            width={(viewportWidth < 768) ? 300 : 450}
+            height={(viewportWidth < 768) ? 480 :380}
             radius={20}
             depth={10}
             blur={1}
@@ -29,8 +30,8 @@ function App() {
 
       <div className='about-links'>
         <GlassElement
-              width={(width < 768) ? 140 : 180}
-              height={(width < 768) ? 140 : 180}
+              width={(viewportWidth < 768) ? 140 : 180}
+              height={(viewportWidth < 768) ? 140 : 180}
               radius={20}
               depth={10}
               blur={1}
@@ -41,8 +42,8 @@ function App() {
             </a>
         </GlassElement>
         <GlassElement
-              width={(width < 768) ? 140 : 180}
-              height={(width < 768) ? 140 : 180}
+              width={(viewportWidth < 768) ? 140 : 180}
+              height={(viewportWidth < 768) ? 140 : 180}
               radius={20}
               depth={10}
               blur={1}
