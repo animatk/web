@@ -1,8 +1,18 @@
+@import '../Helpers/mixins.scss';
+
 .pointerParallax {
     width: 100vw;
-    height: 100vh;
+    height: 1000px;
     position: absolute;
     top:0;
     left: 0;
     z-index: 0;
+
+    @include screen-md {
+        height: 700px;
+    }
+
+    @include screen-lg {
+        height: 100vh;
+    }
 }

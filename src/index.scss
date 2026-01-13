@@ -1,3 +1,5 @@
+@use './Helpers/mixins.scss';
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -32,7 +34,8 @@ body {
   min-height: 100vh;
   background:  transparent;
   background-position: center bottom;
-  background-repeat: repeat; 
+  background-repeat: repeat;
+  font-family: "Lexend", sans-serif;
 }
 
 header {
@@ -48,6 +51,54 @@ h1 {
   font-size: 5rem;
   line-height: 1.1;
 }
+
+.about {
+  &-container {
+    display: flex; 
+    flex-direction: column;
+    gap: 15px;
+
+    @include screen-md {
+      flex-direction: row;
+    }
+  }
+
+  &-content {
+    padding: 5px 15px;
+  }
+
+  &-links {
+    display: flex; 
+    flex-direction: row;
+    gap: 18px;
+
+    @include screen-md {
+      flex-direction: column;
+    }
+
+    & > * {
+      cursor: pointer;
+    }
+
+    &__anchor {
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+      height: calc(100% - 20px);
+    }
+
+    &__image {
+      width: 75%;
+      opacity: .6;
+
+      &--patreon {
+        width: 70%;
+      }
+    }
+  }
+}
+
 
 button {
   border-radius: 8px;
@@ -84,4 +135,5 @@ button:focus-visible {
 footer {
   height: 50px;
   z-index: 1;
+  text-align: center;
 }
