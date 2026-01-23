@@ -1,6 +1,6 @@
-# animatk web
+# animatk™ web
 
-This is the new animatk website based on the one I created on 2010
+This is the new animatk™ website based on the one I created on 2010
 
 https://web.archive.org/web/20110209061425/http://animatk.com/
 

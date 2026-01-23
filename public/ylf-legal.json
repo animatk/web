@@ -1,0 +1,192 @@
+{
+  "terms": {
+    "updated": "2026/01/21",
+    "es-US": [
+      {
+        "updated": "Última actualización: {updated}",
+        "text": "<p>Estos Términos y Condiciones regulan el uso de la aplicación <strong>{AppName}</strong> (en adelante, “la App”), disponible para dispositivos iOS y Android.</p><p>Al descargar o utilizar la App, el usuario acepta estos Términos. Si no está de acuerdo, debe abstenerse de usar la App.</p>"
+      },
+      {
+        "title": "1. Uso de la App",
+        "text": "<p>{AppName} es una aplicación educativa y de entretenimiento diseñada para niños, destinada a ser utilizada <strong>bajo la supervisión de un adulto</strong> (padre, madre o tutor legal).</p><p>El adulto responsable es quien acepta estos Términos en nombre del menor.</p>"
+      },
+      {
+        "title": "2. Suscripciones y pagos",
+        "text": "<p>La App ofrece contenido gratuito y contenido adicional mediante <strong>suscripciones</strong>.</p><ul><li>Los pagos son gestionados exclusivamente por <strong>{store}</strong>.</li><li>Las suscripciones se renuevan automáticamente salvo cancelación por el usuario desde la tienda correspondiente.</li><li>{AppName} no gestiona directamente pagos ni información financiera.</li><li>No se ofrecen reembolsos directos; cualquier solicitud debe realizarse a través de la tienda correspondiente.</li></ul>"
+      },
+      {
+        "title": "3. Contenido",
+        "text": "<p>El contenido de la App es de carácter educativo y lúdico. No se garantiza que el uso de la App produzca resultados educativos específicos.</p><p>El contenido puede cambiar, actualizarse o eliminarse sin previo aviso.</p>"
+      },
+      {
+        "title": "3.1 Voces e imagenes generadas por IA",
+        "text": "<p>Algunas voces e imagenes de la App se generan mediante inteligencia artificial (IA) durante el proceso de desarrollo y compilacion.</p><p>El audio y las imagenes generadas se almacenan y se incluyen en la App; <strong>no se generan mientras la App esta en ejecucion</strong>.</p><p>Aunque estos activos son generados por IA, han sido supervisados y curados por nuestro equipo para asegurar que el contenido sea apropiado para menores.</p><p>Los usuarios deben saber que estos activos sinteticos son para fines creativos e informativos.</p>"
+      },
+      {
+        "title": "3.2 Aviso de contenido sintetico",
+        "text": "<p>En cumplimiento con la normativa vigente sobre inteligencia artificial, se informa al usuario que esta interactuando con contenido generado o manipulado sinteticamente. Las imagenes y voces de la App han sido creadas con tecnologias de IA y no corresponden a seres vivos o locuciones humanas reales.</p>"
+      },
+      {
+        "title": "4. Publicidad (uso futuro)",
+        "text": "<p>Actualmente, la App <strong>no muestra publicidad</strong>.</p><p>En el futuro, la App podrá mostrar publicidad a usuarios no suscritos. En ese caso:</p><ul><li>La publicidad será adecuada para niños.</li><li>No se mostrará publicidad personalizada basada en datos del menor.</li></ul>"
+      },
+      {
+        "title": "5. Cuentas de usuario (uso futuro)",
+        "text": "<p>Actualmente, la App <strong>no requiere la creación de cuentas</strong>.</p><p>En versiones futuras, podría habilitarse la creación de cuentas. De ser así, se informará al usuario y se actualizarán estos Términos y la Política de Privacidad.</p>"
+      },
+      {
+        "title": "6. Propiedad intelectual",
+        "text": "<p>El software, los textos originales y la compilación general de gráficos y activos dentro de la App son propiedad de {legalOwner}, operando bajo la marca {devbrand}. Si bien ciertos activos visuales y sonoros individuales (incluyendo ilustraciones generadas por IA y voces sintéticas) se utilizan bajo licencia por la App, la App en su conjunto está protegida por las leyes de propiedad intelectual y queda prohibida su reproducción no autorizada.</p>"
+      },
+      {
+        "title": "7. Limitación de responsabilidad",
+        "text": "<p>La App se proporciona “tal cual”.</p><p>{AppName} no será responsable por:</p><ul><li>Errores técnicos</li><li>Interrupciones del servicio</li><li>Uso indebido de la App</li><li>Daños derivados del uso o imposibilidad de uso de la App</li></ul>"
+      },
+      {
+        "title": "8. Modificaciones",
+        "text": "<p>Estos Términos pueden actualizarse en cualquier momento. El uso continuado de la App implica la aceptación de los cambios.</p>"
+      },
+      {
+        "title": "9. Contacto",
+        "text": "<p>Para consultas, puedes escribir a: <a href=\"mailto:{contactEmail}\">{contactEmail}</a></p>"
+      }
+    ],
+    "en-US": [
+      {
+        "updated": "Last updated: {updated}",
+        "text": "<p>These Terms and Conditions govern your use of the <strong>{AppName}</strong> application (the “App”), available on iOS and Android devices.</p><p>By downloading or using the App, you agree to these Terms. If you do not agree, you must not use the App.</p>"
+      },
+      {
+        "title": "1. App use",
+        "text": "<p>{AppName} is an educational and entertainment app designed for children and intended to be used <strong>under adult supervision</strong> (parent or legal guardian).</p><p>The responsible adult is the person accepting these Terms on behalf of the child.</p>"
+      },
+      {
+        "title": "2. Subscriptions and payments",
+        "text": "<p>The App offers free content and additional content through <strong>subscriptions</strong>.</p><ul><li>Payments are processed exclusively by the <strong>{store}</strong>.</li><li>Subscriptions renew automatically unless canceled by the user in the relevant store settings.</li><li>{AppName} does not directly process payments or store financial information.</li><li>We do not provide direct refunds; refund requests must be submitted through the applicable store.</li></ul>"
+      },
+      {
+        "title": "3. Content",
+        "text": "<p>The App’s content is educational and for entertainment purposes. We do not guarantee specific learning outcomes.</p><p>Content may be changed, updated, or removed at any time without notice.</p>"
+      },
+      {
+        "title": "3.1 AI-generated voices and images",
+        "text": "<p>Some App voices and images are generated using artificial intelligence (AI) during development and build.</p><p>The generated audio and images are stored and bundled with the App; <strong>no generation occurs while the App is running</strong>.</p><p>Although these assets are AI-generated, they are reviewed and curated by our team to ensure the content is appropriate for children.</p><p>Users should be aware that these synthetic assets are for creative/informational purposes.</p>"
+      },
+      {
+        "title": "3.2 Synthetic content notice",
+        "text": "<p>In compliance with applicable artificial intelligence regulations, we inform the user that they are interacting with synthetically generated or manipulated content. The App’s images and voices have been created with AI technologies and do not correspond to real living beings or real human voice recordings.</p>"
+      },
+      {
+        "title": "4. Advertising (future use)",
+        "text": "<p>The App <strong>does not currently display ads</strong>.</p><p>In the future, the App may show ads to non-subscribed users. If so:</p><ul><li>Ads will be appropriate for children.</li><li>No personalized advertising will be shown based on a child’s data.</li></ul>"
+      },
+      {
+        "title": "5. User accounts (future use)",
+        "text": "<p>The App <strong>does not currently require user accounts</strong>.</p><p>In future versions, we may introduce accounts. If we do, we will inform users and update these Terms and the Privacy Policy.</p>"
+      },
+      {
+        "title": "6. Intellectual property",
+        "text": "<p>The software, original text, and the overall compilation of graphics and assets within the App are the property of {legalOwner}, operating under the brand {devbrand}. While certain individual visual and audio assets (including AI-generated illustrations and synthetic voices) are licensed for use by the App, the App as a whole is protected by intellectual property laws, and unauthorized reproduction is prohibited.</p>"
+      },
+      {
+        "title": "7. Limitation of liability",
+        "text": "<p>The App is provided “as is”.</p><p>{AppName} is not liable for:</p><ul><li>Technical errors</li><li>Service interruptions</li><li>Improper use of the App</li><li>Any damages arising from the use of, or inability to use, the App</li></ul>"
+      },
+      {
+        "title": "8. Changes",
+        "text": "<p>We may update these Terms at any time. Continued use of the App means you accept the updated Terms.</p>"
+      },
+      {
+        "title": "9. Contact",
+        "text": "<p>For questions, contact us at: <a href=\"mailto:{contactEmail}\">{contactEmail}</a></p>"
+      }
+    ]
+  },
+  "privacy": {
+    "updated": "2026/01/21",
+    "es-US": [
+      {
+        "updated": "Última actualización: {updated}",
+        "text": "<p>En <strong>{AppName}</strong>, la privacidad de los niños y sus familias es una prioridad.</p>"
+      },
+      {
+        "title": "1. Información que recopilamos",
+        "text": "<p>Actualmente, {AppName} no recopila, comparte ni almacena ninguna información personal o técnica de sus usuarios. La App opera completamente de forma local en su dispositivo.</p><p>La App no envía datos del usuario (como voz o imágenes) a servicios externos de inteligencia artificial; todo el contenido sintético está integrado localmente. No se envian grabaciones ni datos biometricos a servidores externos de IA.</p>"
+      },
+      {
+        "title": "2. Información de menores",
+        "text": "<p>{AppName} está diseñada para niños y debe ser utilizada bajo la supervisión de un adulto.</p><p>No recopilamos intencionalmente información personal de menores. Si un padre o tutor considera que se ha recopilado información de un menor, puede contactarnos para solicitar su eliminación.</p>"
+      },
+      {
+        "title": "2.1 Voces e imagenes generadas por IA",
+        "text": "<p>Generamos audios e imagenes mediante inteligencia artificial (IA) durante el desarrollo y compilacion. El contenido usado para la generacion es creado por nosotros y <strong>no incluye contenido proporcionado por usuarios</strong>.</p><p>El audio y las imagenes generadas se almacenan y se incluyen en la App.</p>"
+      },
+      {
+        "title": "3. Pagos",
+        "text": "<p>Las suscripciones y pagos son gestionados por:</p><ul><li>{store}</li></ul><p>{AppName} <strong>no tiene acceso</strong> a información de pago o tarjetas de crédito.</p>"
+      },
+      {
+        "title": "4. Publicidad (uso futuro)",
+        "text": "<p>Actualmente, la App <strong>no muestra publicidad</strong>.</p><p>Si en el futuro se muestra publicidad:</p><ul><li>Será contextual y no personalizada.</li><li>No se utilizarán datos personales de menores para segmentación.</li></ul>"
+      },
+      {
+        "title": "5. Cuentas de usuario (uso futuro)",
+        "text": "<p>Actualmente, la App no requiere cuentas.</p><p>Si en el futuro se habilitan cuentas:</p><ul><li>Se solicitará consentimiento del adulto cuando aplique.</li><li>Se actualizará esta Política de Privacidad.</li></ul>"
+      },
+      {
+        "title": "6. Seguridad",
+        "text": "<p>Adoptamos medidas razonables para proteger la información, aunque ningún sistema es completamente seguro.</p>"
+      },
+      {
+        "title": "7. Cambios a esta política",
+        "text": "<p>Podemos actualizar esta Política de Privacidad. La fecha de actualización será visible en la parte superior del documento.</p>"
+      },
+      {
+        "title": "8. Contacto",
+        "text": "<p>Para consultas relacionadas con la privacidad: <a href=\"mailto:{contactEmail}\">{contactEmail}</a></p>"
+      }
+    ],
+    "en-US": [
+      {
+        "updated": "Last updated: {updated}",
+        "text": "<p>At <strong>{AppName}</strong>, we take children’s and families’ privacy seriously.</p>"
+      },
+      {
+        "title": "1. Information we collect",
+        "text": "<p>Currently, {AppName} does not collect, share, or store any personal or technical information from its users. The App operates entirely locally on your device.</p><p>The App does not send user data (such as voice or images) to external artificial intelligence services; all synthetic content is integrated locally. No recordings or biometric data are sent to external AI servers.</p>"
+      },
+      {
+        "title": "2. Children’s information",
+        "text": "<p>{AppName} is designed for children and should be used under adult supervision.</p><p>We do not knowingly collect personal information from children. If a parent or guardian believes we may have collected a child’s information, they can contact us to request deletion.</p>"
+      },
+      {
+        "title": "2.1 AI-generated voices and images",
+        "text": "<p>We generate audio and images using artificial intelligence (AI) during development and build. The content used for generation is created by us and <strong>does not include user-provided content</strong>.</p><p>The generated audio and images are stored and bundled with the App.</p>"
+      },
+      {
+        "title": "3. Payments",
+        "text": "<p>Subscriptions and payments are handled by:</p><ul><li>{store}</li></ul><p>{AppName} <strong>does not have access</strong> to payment details or credit card information.</p>"
+      },
+      {
+        "title": "4. Advertising (future use)",
+        "text": "<p>The App <strong>does not currently display ads</strong>.</p><p>If we introduce ads in the future:</p><ul><li>They will be contextual and non-personalized.</li><li>We will not use children’s personal data for ad targeting.</li></ul>"
+      },
+      {
+        "title": "5. User accounts (future use)",
+        "text": "<p>The App does not currently require accounts.</p><p>If we introduce accounts in the future:</p><ul><li>We will request adult consent where applicable.</li><li>We will update this Privacy Policy.</li></ul>"
+      },
+      {
+        "title": "6. Security",
+        "text": "<p>We use reasonable measures to protect information, but no system is 100% secure.</p>"
+      },
+      {
+        "title": "7. Changes to this policy",
+        "text": "<p>We may update this Privacy Policy from time to time. The updated date will appear at the top of this document.</p>"
+      },
+      {
+        "title": "8. Contact",
+        "text": "<p>For privacy-related questions, contact: <a href=\"mailto:{contactEmail}\">{contactEmail}</a></p>"
+      }
+    ]
+  }
+}
