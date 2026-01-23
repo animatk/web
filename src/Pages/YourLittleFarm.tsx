@@ -75,7 +75,8 @@ function YourLittleFarm() {
   const [textContainerHeight, setTextContainerHeight] = useState<number>(480)
 
   useEffect(() => {
-    console.log('Width', width)
+    if (typeof width === 'undefined') return;
+
     if (width >= 768 && width < 1024) {
       setTextContainerWidth(480)
       setTextContainerHeight(380)
